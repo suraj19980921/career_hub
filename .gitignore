@@ -9,7 +9,7 @@ career_hub_env/
 staticfiles/
 media/
 
-# Node.js
+# Node.js                           
 node_modules/
 dist/
 
