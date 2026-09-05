@@ -1,0 +1,216 @@
+/* Project image assets derived from the approved visual reference. */
+.hero-visual {
+  background: url('/assets/hero-career-illustration.png') 55% 95% / 315px auto no-repeat;
+}
+
+.hero-visual .person,
+.hero-visual .visual-base {
+  display: none;
+}
+
+.brand-mark-image { width: 37px; height: 37px; object-fit: contain; }
+.emblem-image { width: 38px; height: 38px; object-fit: contain; flex: 0 0 auto; }
+.sprite-icon { display:block; flex:0 0 auto; background-repeat:no-repeat; }
+.sprite-category { width:31px; height:31px; background-image:url('/assets/category-icon-pack.png'); background-size:300% 300%; }
+.sprite-exam,.sprite-update { width:42px; height:42px; background-size:400% 100%; }
+.sprite-exam { background-image:url('/assets/exam-icon-pack.png'); }.sprite-update { background-image:url('/assets/update-icon-pack.png'); }
+.sprite-flat { width:42px; height:42px; background-image:url('/assets/exam-update-flat-icons.png'); background-size:400% 200%; }
+.sprite-metric { width:28px; height:28px; background-image:url('/assets/trusted-metrics-flat-icons.png'); background-size:600% 100%; grid-row:span 2; }
+
+/* Asset-aware card sizing: keep the illustration, label, and metadata readable. */
+.category-row { align-items:stretch; }
+.category-card { height:88px; padding:9px 6px 10px; gap:6px; justify-content:center; font-size:10px; }
+.sprite-category { width:48px; height:48px; }
+.exam-card { min-height:100px; padding:14px 16px; gap:14px; }
+.exam-card .sprite-exam { width:62px; height:62px; }
+.exam-card h3 { font-size:11px; margin-bottom:4px; }
+.exam-card p, .exam-card time { font-size:9px; line-height:1.35; }
+.exam-card .days { font-size:9px; align-self:center; }
+.update-item { min-height:96px; padding:14px; gap:14px; }
+.update-item .sprite-update { width:52px; height:52px; }
+.update-item h3 { font-size:11px; line-height:1.3; padding-right:4px; }
+.update-item p, .update-item time { font-size:8px; }
+.trust-strip { min-height:86px; gap:26px; padding:14px 22px; }
+.trust-strip>div { min-width:125px; grid-template-columns:44px auto; column-gap:9px; align-items:center; }
+.trust-strip .sprite-metric { width:42px; height:42px; }
+.trust-strip strong { font-size:13px; }
+.trust-strip small { font-size:8px; }
+
+@media (max-width:760px) {
+  .category-card { height:78px; min-width:84px; font-size:8px; }
+  .sprite-category { width:40px; height:40px; }
+  .exam-card { min-height:90px; padding:11px; }
+  .exam-card .sprite-exam { width:52px; height:52px; }
+  .update-item { min-height:84px; padding:11px; }
+  .update-item .sprite-update { width:44px; height:44px; }
+  .trust-strip>div { min-width:0; grid-template-columns:30px auto; }
+  .trust-strip .sprite-metric { width:30px; height:30px; }
+}
+
+/* Modern colour balance: blue remains the brand colour, not the only colour. */
+.category-card { border-color:#e7eaf4; background:linear-gradient(145deg,#fff 10%,#f9fbff); box-shadow:0 4px 13px rgba(25,55,105,.05); transition:transform .2s ease,box-shadow .2s ease; }
+.category-card:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(35,60,120,.12); }
+.category-card:nth-child(3n+1) { border-bottom:3px solid #16a36b; }
+.category-card:nth-child(3n+2) { border-bottom:3px solid #7a5af8; }
+.category-card:nth-child(3n) { border-bottom:3px solid #f59e0b; }
+.category-card:nth-child(3n+1) .sprite-category { filter:drop-shadow(0 4px 6px #16a36b33); }
+.category-card:nth-child(3n+2) .sprite-category { filter:hue-rotate(24deg) drop-shadow(0 4px 6px #7a5af833); }
+.category-card:nth-child(3n) .sprite-category { filter:hue-rotate(-24deg) drop-shadow(0 4px 6px #f59e0b33); }
+.exam-card { border-left:4px solid #1c71d8; background:linear-gradient(110deg,#fff,#f8fbff); box-shadow:0 5px 16px rgba(21,53,105,.045); }
+.exam-card:nth-child(2) { border-left-color:#10a36b; }.exam-card:nth-child(3) { border-left-color:#7a5af8; }.exam-card:nth-child(4) { border-left-color:#ed7d31; }
+.exam-card .days { background:#ecfaf3; border-radius:20px; padding:5px 8px; color:#138451; }
+.update-item { border-top:3px solid #2668df; background:linear-gradient(150deg,#fff,#fafcff); box-shadow:0 5px 16px rgba(21,53,105,.045); }
+.update-item:nth-child(2) { border-top-color:#8b5cf6; }.update-item:nth-child(3) { border-top-color:#14a66f; }.update-item:nth-child(4) { border-top-color:#f07c3e; }
+.trust-strip { background:linear-gradient(100deg,#f7fbff 0%,#fffaf4 50%,#f4fffb 100%); border-top:1px solid #e7edf6; border-bottom:1px solid #e7edf6; }
+.trust-strip>div { border-left-color:#d9e3ef; }.trust-strip>div:nth-child(2) strong { color:#2463d9; }.trust-strip>div:nth-child(3) strong { color:#7a4fe0; }.trust-strip>div:nth-child(4) strong { color:#df742c; }.trust-strip>div:nth-child(5) strong { color:#0b9560; }.trust-strip>div:nth-child(6) strong { color:#2185a1; }.trust-strip>div:nth-child(7) strong { color:#a25a1b; }
+
+/* Softer, borderless cards with colour supplied by the artwork and surfaces. */
+.category-card,.exam-card,.update-item { border:0; }
+.category-card { border-bottom:0 !important; box-shadow:0 8px 24px rgba(31,52,89,.07); }
+.category-card:nth-child(3n+1) { background:linear-gradient(145deg,#ffffff,#f2fbf6); }
+.category-card:nth-child(3n+2) { background:linear-gradient(145deg,#ffffff,#fbf6ff); }
+.category-card:nth-child(3n) { background:linear-gradient(145deg,#ffffff,#fff8ef); }
+.category-card:nth-child(3n+1) .sprite-category { filter:hue-rotate(95deg) saturate(1.1) drop-shadow(0 5px 7px #16a36b22); }
+.category-card:nth-child(3n+2) .sprite-category { filter:hue-rotate(35deg) saturate(1.15) drop-shadow(0 5px 7px #7a5af822); }
+.category-card:nth-child(3n) .sprite-category { filter:hue-rotate(-42deg) saturate(1.15) drop-shadow(0 5px 7px #f59e0b22); }
+.exam-card { border-left:0; background:linear-gradient(135deg,#fff,#fafcff); box-shadow:0 8px 24px rgba(31,52,89,.065); }
+.exam-card:nth-child(2) { background:linear-gradient(135deg,#fff,#f4fcf8); }.exam-card:nth-child(3) { background:linear-gradient(135deg,#fff,#fbf7ff); }.exam-card:nth-child(4) { background:linear-gradient(135deg,#fff,#fff8f1); }
+.exam-card:nth-child(2) .sprite-exam { filter:hue-rotate(100deg) saturate(1.1); }.exam-card:nth-child(3) .sprite-exam { filter:hue-rotate(35deg) saturate(1.1); }.exam-card:nth-child(4) .sprite-exam { filter:hue-rotate(-35deg) saturate(1.1); }
+.update-item { border-top:0; background:linear-gradient(145deg,#fff,#fbfcff); box-shadow:0 8px 24px rgba(31,52,89,.065); }
+.update-item:nth-child(2) { background:linear-gradient(145deg,#fff,#fbf7ff); }.update-item:nth-child(3) { background:linear-gradient(145deg,#fff,#f4fcf8); }.update-item:nth-child(4) { background:linear-gradient(145deg,#fff,#fff8f1); }
+.update-item:nth-child(2) .sprite-update { filter:hue-rotate(40deg) saturate(1.15); }.update-item:nth-child(3) .sprite-update { filter:hue-rotate(95deg) saturate(1.1); }.update-item:nth-child(4) .sprite-update { filter:hue-rotate(-38deg) saturate(1.1); }
+
+/* Section-specific icon palette: Upcoming Exams, Latest Updates, and trust row. */
+.exam-card:nth-child(1) .sprite-exam { filter:hue-rotate(-42deg) saturate(1.2); }
+.exam-card:nth-child(2) .sprite-exam { filter:hue-rotate(105deg) saturate(1.2); }
+.exam-card:nth-child(3) .sprite-exam { filter:hue-rotate(42deg) saturate(1.2); }
+.exam-card:nth-child(4) .sprite-exam { filter:hue-rotate(-78deg) saturate(1.25); }
+.update-item:nth-child(1) .sprite-update { filter:hue-rotate(-48deg) saturate(1.2); }
+.update-item:nth-child(2) .sprite-update { filter:hue-rotate(46deg) saturate(1.2); }
+.update-item:nth-child(3) .sprite-update { filter:hue-rotate(112deg) saturate(1.2); }
+.update-item:nth-child(4) .sprite-update { filter:hue-rotate(-86deg) saturate(1.25); }
+.trust-strip>div:nth-child(2) .sprite-metric { filter:hue-rotate(106deg) saturate(1.18); }
+.trust-strip>div:nth-child(3) .sprite-metric { filter:hue-rotate(38deg) saturate(1.18); }
+.trust-strip>div:nth-child(4) .sprite-metric { filter:hue-rotate(-62deg) saturate(1.2); }
+.trust-strip>div:nth-child(5) .sprite-metric { filter:hue-rotate(82deg) saturate(1.15); }
+.trust-strip>div:nth-child(6) .sprite-metric { filter:hue-rotate(150deg) saturate(1.15); }
+.trust-strip>div:nth-child(7) .sprite-metric { filter:hue-rotate(-100deg) saturate(1.2); }
+
+/* Approved lower-page reference layout. */
+.home-content { padding-top:22px; }
+.home-content section { margin-bottom:38px; }
+.section-heading { margin-bottom:18px; }
+.section-heading h2 { font-size:23px; font-weight:800; letter-spacing:-.8px; padding-left:13px; border-left:4px solid #2467e5; }
+.section-heading a { font-size:14px; font-weight:700; }
+.category-row { gap:16px; grid-template-columns:repeat(10,minmax(0,1fr)); }
+.category-card { height:148px; padding:17px 8px 13px; border:1px solid #e6ebf3 !important; border-radius:12px; background:#fff !important; box-shadow:0 4px 12px rgba(17,38,78,.05); gap:7px; }
+.category-card:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(25,62,130,.12); }
+.sprite-category { width:62px; height:62px; filter:none !important; }
+.category-card strong { color:#101a2f; font-size:14px; font-weight:800; line-height:1.15; text-align:center; }
+.category-card small { color:#657188; font-size:12px; }
+.exam-grid { gap:16px; }.exam-card { min-height:116px; padding:18px; border:1px solid #e7ebf2 !important; border-radius:11px; background:#fff !important; box-shadow:0 3px 10px rgba(22,47,91,.04); }
+.exam-card .sprite-exam { width:76px; height:76px; filter:none !important; border-radius:12px; }
+.exam-card .sprite-flat { width:76px; height:76px; filter:none !important; border-radius:12px; }
+.exam-card:nth-child(1) .sprite-exam { filter:none !important; }.exam-card:nth-child(2) .sprite-exam { filter:hue-rotate(-35deg) !important; }.exam-card:nth-child(3) .sprite-exam { filter:hue-rotate(35deg) !important; }.exam-card:nth-child(4) .sprite-exam { filter:hue-rotate(105deg) !important; }
+.exam-card h3 { font-size:16px; }.exam-card p,.exam-card time { font-size:12px; }.exam-card .days { font-size:13px; padding:10px 12px; border-radius:11px; }
+.updates-grid { gap:16px; }.update-item { min-height:108px; padding:15px; border:1px solid #e7ebf2 !important; border-radius:11px; background:#fff !important; box-shadow:0 3px 10px rgba(22,47,91,.04); }
+.update-item .sprite-update { width:58px; height:58px; filter:none !important; border-radius:10px; }.update-item h3 { font-size:13px; }.update-item p,.update-item time { font-size:11px; }
+.update-item .sprite-flat { width:58px; height:58px; filter:none !important; border-radius:10px; }
+.trust-strip { min-height:98px; margin-top:28px; border:1px solid #d8e5fb; border-radius:10px; background:linear-gradient(100deg,#f8fbff,#fff) !important; padding:14px 30px; gap:0; }
+.trust-prefix { max-width:125px; font-size:14px; line-height:1.25; }.trust-strip>div { min-width:0; flex:1; grid-template-columns:48px auto; padding-left:24px; }.trust-strip .sprite-metric { width:46px; height:46px; filter:none !important; }.trust-strip strong { font-size:22px; }.trust-strip small { font-size:12px; }
+.site-footer { margin-top:24px; background:linear-gradient(120deg,#052752,#001a3b); }.footer-content { padding:30px 0 24px; }.footer-brand p,.footer-column a,.newsletter p { font-size:12px; line-height:1.75; }.footer-column h2,.newsletter h2 { font-size:16px; }.copyright { font-size:12px; padding:12px; }
+@media(max-width:760px){.home-content section{margin-bottom:24px}.section-heading h2{font-size:18px}.category-row{gap:10px}.category-card{height:122px;min-width:105px}.sprite-category{width:50px;height:50px}.category-card strong{font-size:11px}.category-card small{font-size:10px}.exam-card{min-height:96px}.exam-card .sprite-exam{width:58px;height:58px}.trust-strip{border-radius:0;margin-inline:-12px}.trust-strip strong{font-size:15px}}
+
+/* Compact, calmer typography matching the reference scale. */
+.section-heading h2 { font-size:20px; font-weight:700; }
+.section-heading a { font-size:12px; font-weight:600; }
+.category-card strong { font-size:12px; font-weight:650; }
+.category-card small { font-size:11px; }
+.exam-card h3 { font-size:14px; font-weight:700; }
+.exam-card p,.exam-card time { font-size:11px; font-weight:400; }
+.exam-card .days { font-size:11px; font-weight:600; }
+.update-item h3 { font-size:12px; font-weight:650; }
+.update-item p,.update-item time { font-size:10px; font-weight:400; }
+.trust-prefix { font-size:12px; font-weight:700; }
+.trust-strip strong { font-size:18px; font-weight:700; }
+.trust-strip small { font-size:11px; }
+.footer-column h2,.newsletter h2 { font-size:14px; font-weight:650; }
+.footer-brand p,.footer-column a,.newsletter p { font-size:11px; }
+
+/* Keep content-card headings aligned on a single line. */
+.exam-card h3,.update-item h3 { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+.exam-card>div,.update-item>div { min-width:0; }
+
+/* Reserve the card width for content; icons and status badges must not crush text. */
+.exam-card>div,.update-item>div { flex:1 1 auto; }
+.exam-card .days { flex:0 0 auto; white-space:nowrap; }
+.exam-card p,.exam-card time,.update-item p,.update-item time { white-space:nowrap; }
+.exam-card h3 { font-size:13px; }
+.update-item h3 { font-size:11px; }
+.exam-card .sprite-flat { flex:0 0 68px; width:68px; height:68px; }
+.update-item .sprite-flat { flex:0 0 52px; width:52px; height:52px; }
+
+/* Approved Upcoming Exam tile composition. */
+.exam-card { display:grid; grid-template-columns:64px minmax(0,1fr) 68px; align-items:center; column-gap:14px; min-height:116px; height:116px; padding:14px 18px; }
+.exam-card .sprite-flat { width:64px; height:64px; flex:none; }
+.exam-card>div { min-width:0; display:grid; gap:3px; }
+.exam-card h3 { font-size:14px; font-weight:600; line-height:1.2; letter-spacing:0; }
+.exam-card p,.exam-card time { font-size:11px; line-height:1.25; color:#516077; }
+.exam-card .days { width:68px; height:66px; padding:7px 4px; border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:3px; background:#eaf9f0; color:#087a45; }
+.exam-card .days b { font-size:17px; line-height:1; font-weight:700; white-space:nowrap; }
+.exam-card .days small { font-size:9px; line-height:1; font-weight:600; white-space:nowrap; }
+@media(max-width:760px){.exam-card{grid-template-columns:56px minmax(0,1fr) 62px;column-gap:10px;padding:11px;min-height:96px;height:96px}.exam-card .sprite-flat{width:56px;height:56px}.exam-card h3{font-size:12px}.exam-card .days{width:62px;height:58px}.exam-card .days b{font-size:15px}}
+
+.trust-strip>div .sprite-metric { filter:none !important; }
+
+/* Compact Upcoming Exam tiles. */
+.exam-card { grid-template-columns:50px minmax(0,1fr) 56px; column-gap:12px; height:92px; min-height:92px; padding:12px 14px; }
+.exam-card .sprite-flat { width:50px; height:50px; flex-basis:50px; }
+.exam-card h3 { font-size:12px; font-weight:600; }
+.exam-card p,.exam-card time { font-size:10px; }
+.exam-card .days { width:56px; height:54px; padding:6px 3px; border-radius:10px; }
+.exam-card .days b { font-size:15px; }.exam-card .days small { font-size:8px; }
+@media(max-width:760px){.exam-card{grid-template-columns:46px minmax(0,1fr) 54px;height:88px;min-height:88px;padding:10px;column-gap:9px}.exam-card .sprite-flat{width:46px;height:46px;flex-basis:46px}.exam-card .days{width:54px;height:50px}.exam-card h3{font-size:11px}}
+
+/* Five compact tiles per desktop row. */
+.exam-grid,.updates-grid { grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.exam-card { grid-template-columns:42px minmax(0,1fr) 50px; column-gap:9px; height:82px; min-height:82px; padding:9px 10px; }
+.exam-card .sprite-flat { width:42px; height:42px; flex-basis:42px; }
+.exam-card h3 { font-size:11px; }.exam-card p,.exam-card time { font-size:9px; }
+.exam-card .days { width:50px; height:46px; padding:5px 2px; border-radius:9px; }.exam-card .days b { font-size:13px; }.exam-card .days small { font-size:7px; }
+.update-item { height:82px; min-height:82px; padding:10px; gap:9px; }.update-item .sprite-flat { width:42px; height:42px; flex-basis:42px; }.update-item h3 { font-size:10px; }.update-item p,.update-item time { font-size:8px; }
+@media(max-width:760px){.exam-grid,.updates-grid{grid-template-columns:none}.exam-card{grid-template-columns:46px minmax(0,1fr) 54px;height:88px;min-height:88px;padding:10px}.exam-card .sprite-flat{width:46px;height:46px}.exam-card .days{width:54px;height:50px}}
+
+.trust-strip { min-height:108px; height:108px; }
+.trust-strip .sprite-metric { width:58px; height:58px; }
+@media(max-width:760px){.trust-strip{height:auto;min-height:96px}.trust-strip .sprite-metric{width:42px;height:42px}}
+
+/* Tighter vertical rhythm inside compact tiles. */
+.exam-card { padding-top:8px; padding-bottom:8px; }
+.update-item { padding-top:10px; padding-bottom:10px; }
+.category-card { padding-top:12px; padding-bottom:10px; }
+
+/* Exact compact tile geometry from the latest approved reference. */
+.category-row { grid-template-columns:repeat(10,minmax(0,1fr)); gap:16px; }
+.category-card { height:148px; min-width:0; border:1px solid #e5eaf2 !important; border-radius:12px; box-shadow:0 3px 10px rgba(24,44,80,.035); }
+.exam-grid { grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.exam-card { grid-template-columns:42px minmax(0,1fr) 50px; column-gap:9px; height:82px; min-height:82px; padding:9px 10px; border:1px solid #e4e9f1 !important; border-radius:11px; box-shadow:0 2px 8px rgba(24,44,80,.03); }
+.exam-card .sprite-flat { width:42px; height:42px; flex-basis:42px; }
+.exam-card h3 { font-size:11px; }
+.exam-card p,.exam-card time { font-size:9px; }
+.exam-card .days { width:50px; height:46px; padding:5px 2px; border-radius:9px; }
+.exam-card .days b { font-size:13px; }
+.exam-card .days small { font-size:7px; }
+.updates-grid { grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+.update-item { height:82px; min-height:82px; padding:10px; gap:9px; border:1px solid #e4e9f1 !important; border-radius:11px; box-shadow:0 2px 8px rgba(24,44,80,.03); }
+.update-item .sprite-flat { width:42px; height:42px; flex-basis:42px; }
+.update-item h3 { font-size:10px; }
+.update-item p,.update-item time { font-size:8px; }
+.trust-strip { height:98px; min-height:98px; border:1px solid #d8e5fb; border-radius:10px; }
+@media(max-width:760px){.category-row{grid-template-columns:none}.category-card{height:122px;min-width:105px}.exam-grid,.updates-grid{grid-template-columns:none}.exam-card{grid-template-columns:46px minmax(0,1fr) 54px;height:88px;min-height:88px;padding:10px}.exam-card .sprite-flat{width:46px;height:46px}.exam-card .days{width:54px;height:50px}.update-item{height:84px;min-height:84px}}
+
+/* Full-size trusted-stat artwork on desktop, with a compact mobile fallback. */
+.trust-strip { height:auto; min-height:112px; padding-block:10px; }
+.trust-strip>div { grid-template-columns:50px minmax(0,1fr); column-gap:8px; }
+.trust-strip .sprite-metric { width:46px; height:80px; background-size:600% 100%; justify-self:center; align-self:center; }
+@media(max-width:760px){.trust-strip{min-height:96px;padding-block:10px}.trust-strip>div{grid-template-columns:40px minmax(0,1fr);column-gap:6px}.trust-strip .sprite-metric{width:36px;height:36px}}

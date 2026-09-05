@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.career_hub_env/
+career_hub_env/
+
+# Django
+*.sqlite3
+staticfiles/
+media/
+
+# Node.js
+node_modules/
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

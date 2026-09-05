@@ -1,0 +1,23 @@
+import { useEffect, useState } from 'react'
+import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer'
+import { AdBanner, CategoryCard, ExamCard, QuickAccessCard, RecruitmentCard, SectionHeader, TrustStats, UpdateItem } from '../components/home/HomeParts'
+import { getHomepage, searchHomepage, subscribeNewsletter } from '../services/homepageService'
+
+function Hero({ quickAccess }) {
+  const [query, setQuery] = useState(''); const [result, setResult] = useState('')
+  async function submit(event) { event.preventDefault(); if (!query.trim()) return; try { const { data } = await searchHomepage(query); setResult(`${data.recruitments.length + data.exams.length} matching opportunities found.`) } catch { setResult('Search is unavailable right now.') } }
+  return <section className="hero"><div className="page-shell hero-layout"><div className="hero-copy"><span className="trust-badge">◆ &nbsp; India's Most Trusted Government Job Portal</span><h1>Find Your Next <span>Government Career</span></h1><p>Latest government jobs, exams, results, admit cards and updates — all in one place.</p><form className="search-form" onSubmit={submit}><label className="visually-hidden" htmlFor="site-search">Search jobs and exams</label><span>⌕</span><input id="site-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search jobs, exams, organizations..." /><button>⌕ &nbsp; Search</button></form>{result && <p className="search-result" role="status">{result}</p>}<div className="quick-access">{quickAccess.map(item => <QuickAccessCard key={item.title} item={item} />)}</div></div><div className="hero-visual" aria-hidden="true"><div className="stat-card"><small>New Jobs</small><strong>Explore</strong><span>Demo content</span></div><div className="mini-card profile">♟ <i>━━━<br />━━</i></div><div className="visual-search">⌕</div><div className="visual-bell">♧</div><div className="person"><span className="hair"></span><span className="face"></span><span className="body"></span><span className="laptop"></span></div><div className="visual-base"></div><div className="dots">● ● <i>●</i> ○ ○</div></div></div></section>
+}
+
+function HomePage() {
+  const [data, setData] = useState(null); const [error, setError] = useState('')
+  useEffect(() => { getHomepage().then((response) => setData(response.data)).catch(() => setError('Homepage data is unavailable. Start Django and load development data.')) }, [])
+  const jobs = (data?.latest_recruitments || []).map(item => ({ ...item, badge: item.status_label.toUpperCase(), emblem: item.organization_icon, posts: `${item.total_vacancies} posts`, deadline: item.last_date }))
+  const categories = (data?.categories || []).map(item => [item.icon, item.name])
+  const exams = (data?.upcoming_exams || []).map(item => ({ icon: item.organization_icon, name: item.title, type: item.exam_type, date: item.exam_date, left: `${item.days_remaining} days left` }))
+  const updates = (data?.latest_updates || []).map(item => ({ icon: '▤', title: item.title, status: item.update_type.replace('_', ' '), time: item.published_display }))
+  const stats = (data?.statistics || []).map(item => [item.icon, item.value, item.label])
+  return <><Header /><main id="content"><Hero quickAccess={data?.quick_access || []} />{!data && <p className="page-shell api-message" role={error ? 'alert' : 'status'}>{error || 'Loading homepage data…'}</p>}<div className="page-shell home-content"><section><SectionHeader title="Latest Recruitments" link="View All Jobs" /><div className="recruitment-grid">{jobs.length ? jobs.map(job => <RecruitmentCard key={job.slug} job={job} />) : <p className="empty-state">No active recruitment notices yet.</p>}</div></section><AdBanner /><section><SectionHeader title="Explore by Category" link="View All Categories" /><div className="category-row">{categories.length ? categories.map(category => <CategoryCard key={category[1]} category={category} />) : <p className="empty-state">No categories available.</p>}</div></section><section><SectionHeader title="Upcoming Exams" link="View All Exams" /><div className="exam-grid">{exams.length ? exams.map(exam => <ExamCard key={exam.name} exam={exam} />) : <p className="empty-state">No upcoming exams available.</p>}</div></section><section><SectionHeader title="Latest Updates" link="View All Updates" /><div className="updates-grid">{updates.length ? updates.map(update => <UpdateItem key={update.title} update={update} />) : <p className="empty-state">No updates have been published.</p>}</div></section></div>{stats.length > 0 && <TrustStats stats={stats} />}</main><Footer onSubscribe={subscribeNewsletter} /></>
+}
+export default HomePage
